@@ -1,0 +1,59 @@
+{{ config(materialized='table') }}
+
+WITH users_extract AS (
+
+SELECT	1	 AS id,	'SE15 1AA'	 AS postcode UNION ALL
+SELECT	2	 AS id,	'SE15 1AB'	 AS postcode UNION ALL
+SELECT	3	 AS id,	'SE15 1AD'	 AS postcode UNION ALL
+SELECT	4	 AS id,	'SE15 1AE'	 AS postcode UNION ALL
+SELECT	5	 AS id,	'SE15 1AF'	 AS postcode UNION ALL
+SELECT	6	 AS id,	'SE15 1AG'	 AS postcode UNION ALL
+SELECT	7	 AS id,	'SE15 1AH'	 AS postcode UNION ALL
+SELECT	8	 AS id,	'SE15 1AJ'	 AS postcode UNION ALL
+SELECT	9	 AS id,	'SE15 1AL'	 AS postcode UNION ALL
+SELECT	10	 AS id,	'SE15 1AN'	 AS postcode UNION ALL
+SELECT	11	 AS id,	'SE15 1AP'	 AS postcode UNION ALL
+SELECT	12	 AS id,	'SE15 1AQ'	 AS postcode UNION ALL
+SELECT	13	 AS id,	'SE15 1AR'	 AS postcode UNION ALL
+SELECT	14	 AS id,	'SE15 1AU'	 AS postcode UNION ALL
+SELECT	15	 AS id,	'SE15 1AX'	 AS postcode UNION ALL
+SELECT	16	 AS id,	'SE15 1AY'	 AS postcode UNION ALL
+SELECT	17	 AS id,	'SE15 1AZ'	 AS postcode UNION ALL
+SELECT	18	 AS id,	'SE15 1BA'	 AS postcode UNION ALL
+SELECT	19	 AS id,	'SE15 1BB'	 AS postcode UNION ALL
+SELECT	20	 AS id,	'SE15 1BD'	 AS postcode UNION ALL
+SELECT	21	 AS id,	'SE15 1BE'	 AS postcode UNION ALL
+SELECT	22	 AS id,	'SE15 1BG'	 AS postcode UNION ALL
+SELECT	23	 AS id,	'SE15 1BH'	 AS postcode UNION ALL
+SELECT	24	 AS id,	'SE15 1BJ'	 AS postcode UNION ALL
+SELECT	25	 AS id,	'SE15 1BL'	 AS postcode UNION ALL
+SELECT	26	 AS id,	'SE15 1BQ'	 AS postcode UNION ALL
+SELECT	27	 AS id,	'SE15 1BX'	 AS postcode UNION ALL
+SELECT	28	 AS id,	'SE15 1BZ'	 AS postcode UNION ALL
+SELECT	29	 AS id,	'SE15 1DD'	 AS postcode UNION ALL
+SELECT	30	 AS id,	'SE15 1DE'	 AS postcode UNION ALL
+SELECT	31	 AS id,	'SE15 1DF'	 AS postcode UNION ALL
+SELECT	32	 AS id,	'SE15 1DG'	 AS postcode UNION ALL
+SELECT	33	 AS id,	'SE15 1DR'	 AS postcode UNION ALL
+SELECT	34	 AS id,	'SE15 1DS'	 AS postcode UNION ALL
+SELECT	35	 AS id,	'SE15 1DT'	 AS postcode UNION ALL
+SELECT	36	 AS id,	'SE15 1DU'	 AS postcode UNION ALL
+SELECT	37	 AS id,	'SE15 1DW'	 AS postcode UNION ALL
+SELECT	38	 AS id,	'SE15 1DX'	 AS postcode UNION ALL
+SELECT	39	 AS id,	'SE15 1DY'	 AS postcode UNION ALL
+SELECT	40	 AS id,	'SE15 1DZ'	 AS postcode UNION ALL
+SELECT	41	 AS id,	'SE15 1EA'	 AS postcode UNION ALL
+SELECT	42	 AS id,	'SE15 1EB'	 AS postcode UNION ALL
+SELECT	43	 AS id,	'SE15 1ED'	 AS postcode UNION ALL
+SELECT	44	 AS id,	'SE15 1EE'	 AS postcode UNION ALL
+SELECT	45	 AS id,	'SE15 1EF'	 AS postcode UNION ALL
+SELECT	46	 AS id,	'SE15 1EG'	 AS postcode UNION ALL
+SELECT	47	 AS id,	'SE15 1EH'	 AS postcode UNION ALL
+SELECT	48	 AS id,	'SE15 1EJ'	 AS postcode UNION ALL
+SELECT	49	 AS id,	'SE15 1EL'	 AS postcode UNION ALL
+SELECT	50	 AS id,	'N1 7LH'	 AS postcode
+
+)
+
+SELECT *
+FROM users_extract

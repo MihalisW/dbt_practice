@@ -1,0 +1,74 @@
+
+version: 2
+
+models:
+    - name: users_extract
+      description: "Information about users"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+          - name: postcode
+            description: "This indicates where a user is at the moment. This attribute may change regularly based on the user’s location."
+
+    - name: pageviews_extract
+      description: "Information about pageviews"
+      columns:
+          - name: user_id
+            description: "Relationship between pageviews and the user_extract"
+            tests:
+                - not_null
+          - name: url 
+            description: "A url of the page being visited"
+            tests:
+                - not_null
+          - name: pageview_datetime
+            description: "When the pageview was created"
+    
+    - name: current_pageview_facts
+      description: "Facts about pageviews using the current postcode of the user"
+      columns:
+          - name: fact_id
+            description: "A surrogate key to maintain the grain of the table (hour, postcode)"
+            tests:
+                - unique
+                - not_null
+          - name: pageview_hour
+            description: "The hour at which a pageview took place."
+          - name: pageview_day
+            description: "The day at which a pageview took place."
+          - name: pageview_week
+            description: "The week at which a pageview took place."
+          - name: pageview_month
+            description: "The month at which a pageview took place."
+          - name: pageview_year
+            description: "The year at which a pageview took place."      
+          - name: postcode
+            description: "The current postcode of the user."
+          - name: pageview_count
+            description: "The count of the pageviews."
+
+    - name: immutable_pageview_facts
+      description: "Facts about pageviews using the time-relevant postcode of the user"
+      columns:
+          - name: fact_id
+            description: "A surrogate key to maintain the grain of the table (hour, postcode)"
+            tests:
+                - unique
+                - not_null
+          - name: pageview_hour
+            description: "The hour at which a pageview took place."
+          - name: pageview_day
+            description: "The day at which a pageview took place."
+          - name: pageview_week
+            description: "The week at which a pageview took place."
+          - name: pageview_month
+            description: "The month at which a pageview took place."
+          - name: pageview_year
+            description: "The year at which a pageview took place."      
+          - name: postcode
+            description: "The current postcode of the user."
+          - name: pageview_count
+            description: "The count of the pageviews."            

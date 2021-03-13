@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: "{{ env_var('DBT_SOURCE') }}"
+    tables:
+      - name: pageviews_extract
+      - name: users_extract
+      - name: users_postcodes_staging
