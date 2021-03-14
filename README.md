@@ -93,6 +93,6 @@ In order to observe the incremental features of the pipeline follow these steps:
 
 ## Scheduling this pipeline
 
-Assuming that we require an hourly cadance then we this should be scheduled every hour, with a 10 minute grace period to allow the extract process to complete.
+Assuming that we require an hourly cadance then this should be scheduled every hour, with a 10 minute grace period to allow the extract process to complete.
 **Note** this project loads 'extract' tables simply to illustrate the overall pipeline conveniently. This would be removed in an actual scenario from the `transform_pipeline.sh` file. 
-In order to be sure that we meet our 49 minute window before the next extraction process we could use a clustering key on all instances of the user id, a partition key on timestamps between joined tables in order to improve performance.
+In order to be sure that we meet our 49 minute window before the next extraction process we could use a clustering key on all instances of the user id and a partition key on timestamps between joined tables in order to improve performance.
