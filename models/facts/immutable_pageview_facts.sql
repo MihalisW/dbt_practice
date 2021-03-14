@@ -21,10 +21,12 @@ WITH immutable_pageview_facts AS (
            ups.postcode    
 )
 
+      {% if is_incremental() %} 
+
 ,increment AS (
        SELECT MAX(pageview_hour) AS value_ FROM {{ this }}
 )
-
+      {% endif %}  
     SELECT {{ dbt_utils.surrogate_key(
              'pageview_hour',
              'postcode'
