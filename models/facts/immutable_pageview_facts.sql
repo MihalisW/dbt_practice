@@ -11,8 +11,9 @@ WITH immutable_pageview_facts AS (
       FROM {{ source( env_var('DBT_SOURCE'), 'pageviews_extract') }} AS pe
       JOIN {{ source( env_var('DBT_SOURCE'), 'users_postcodes_staging') }} AS ups 
         ON pe.user_id = ups.id 
-       AND (pe.pageview_datetime::TIMESTAMP >= ups.dbt_valid_from
-                      AND pe.pageview_datetime::TIMESTAMP < COALESCE(ups.dbt_valid_to, CURRENT_TIMESTAMP))
+       AND ((pageview_datetime::TIMESTAMP >= ups.dbt_valid_from 
+       AND pageview_datetime::TIMESTAMP <= ups.dbt_valid_to)
+        OR ups.dbt_valid_to IS NULL)
   GROUP BY DATE_TRUNC('hour', pe.pageview_datetime::TIMESTAMP),
            DATE_TRUNC('day', pe.pageview_datetime::TIMESTAMP),
            DATE_TRUNC('week', pe.pageview_datetime::TIMESTAMP),
