@@ -81,6 +81,15 @@ The transform pipeline should create two source tables for illustrative purposes
 two tables in the target: `current_pageview_facts` for facts using the 
 current location of the user and `immutable_pageview_facts` for facts using the time-based location of the user.
 
+## Testing incremental features
+In order to observe the incremental features of the pipeline follow these steps:
+1. Run the pipeline for the first time
+2. Replace line 54 in `users_extract.sql` with the following: 
+   `SELECT	50	 AS id,	'SE15 1EN'	 AS postcode`
+3. Re-run pipeline  
+4. Uncomment lines 1242-1243 in `pageviews_extract.sql`
+5. Re-run pipeline 
+
 ## Scheduling this pipeline
 
 Assuming that we require an hourly cadance then we this should be scheduled every hour, with a 10 minute grace period to allow the extract process to complete.
