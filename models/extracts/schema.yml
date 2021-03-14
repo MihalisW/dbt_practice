@@ -33,7 +33,6 @@ models:
           - name: fact_id
             description: "A surrogate key to maintain the grain of the table (hour, postcode)"
             tests:
-                - unique
                 - not_null
           - name: pageview_hour
             description: "The hour at which a pageview took place."
