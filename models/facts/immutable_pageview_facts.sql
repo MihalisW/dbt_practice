@@ -8,8 +8,8 @@ WITH immutable_pageview_facts AS (
            DATE_TRUNC('year', pe.pageview_datetime::TIMESTAMP) AS pageview_year,
            ups.postcode,
            COUNT(*) AS pageview_count
-      FROM playground.pageviews_extract AS pe
-      JOIN playground.users_postcodes_staging AS ups 
+      FROM {{ source( env_var('DBT_SOURCE'), 'pageviews_extract') }} AS pe
+      JOIN {{ source( env_var('DBT_SOURCE'), 'users_postcodes_staging') }} AS ups 
         ON pe.user_id = ups.id 
        AND (pe.pageview_datetime::TIMESTAMP >= ups.dbt_valid_from
                       AND pe.pageview_datetime::TIMESTAMP < COALESCE(ups.dbt_valid_to, CURRENT_TIMESTAMP))
