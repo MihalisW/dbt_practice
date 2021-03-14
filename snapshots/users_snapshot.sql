@@ -11,6 +11,6 @@
     )
 }}
 
-SELECT id, postcode FROM {{ source( env_var('DBT_SOURCE'), 'users_extract') }}
+SELECT id, postcode FROM {{ source( env_var('DBT_SOURCE'), 'users_extract') }} GROUP BY id, postcode
 
 {% endsnapshot %}
