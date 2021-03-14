@@ -14,7 +14,8 @@ makes it quite quick and easy to spin up a local instance of postgres.
 First clone this repository like so:
 
 ```
-git clone 
+git clone https://github.com/MihalisW/dbt_practice.git
+cd dbt_practice
 ```
 
 The `profiles.yml` file uses jinja strings to retrieve your preferred settings 

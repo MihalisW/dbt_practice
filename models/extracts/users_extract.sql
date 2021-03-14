@@ -51,7 +51,7 @@ SELECT	46	 AS id,	'SE15 1EG'	 AS postcode UNION ALL
 SELECT	47	 AS id,	'SE15 1EH'	 AS postcode UNION ALL
 SELECT	48	 AS id,	'SE15 1EJ'	 AS postcode UNION ALL
 SELECT	49	 AS id,	'SE15 1EL'	 AS postcode UNION ALL
-SELECT	50	 AS id,	'N1 7LH'	 AS postcode
+SELECT	50	 AS id,	'SE15 1EN'	 AS postcode
 
 )
 
