@@ -1,4 +1,6 @@
-{{ config(materialized='incremental') }}
+{{ config(
+   materialized='table', 
+)}}
 
 WITH current_pageview_facts AS (
 
@@ -19,21 +21,14 @@ WITH current_pageview_facts AS (
            ups.postcode    
 )
 
-,increment AS (
-       SELECT MAX(pageview_hour) AS value_ FROM {{ this }}
-)
-
     SELECT {{ dbt_utils.surrogate_key(
-             'pageview_hour',
-             'postcode'
+             'cpf.pageview_hour',
+             'cpf.postcode'
            ) }} as fact_id,
-           pageview_hour,
-           pageview_day,
-           pageview_week,
-           pageview_year,
-           postcode,
-           pageview_count
-      FROM current_pageview_facts
-      {% if is_incremental() %} 
-      WHERE pageview_hour > (SELECT value_ FROM increment)     
-      {% endif %}        
+           cpf.pageview_hour,
+           cpf.pageview_day,
+           cpf.pageview_week,
+           cpf.pageview_year,
+           cpf.postcode,
+           cpf.pageview_count
+      FROM current_pageview_facts AS cpf
