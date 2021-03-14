@@ -1,5 +1,5 @@
 #!/usr/bin/env bash 
-dbt run --models extracts #--full-refresh
+dbt run --models extracts
 dbt test
 dbt snapshot 
-dbt run --models facts #--full-refresh
+dbt run --models facts
